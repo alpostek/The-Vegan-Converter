@@ -2,14 +2,15 @@
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0 auto;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 html{
   font-size: 20px;
 }
 
 $mainColor: #EEF0F0;
-$secondColor: #9F47E5;
+// $secondColor: #9F47E5;
+$secondColor: #ab92e1;
 
 div{
   display: flex;
@@ -18,15 +19,24 @@ div{
 @mixin boxstyle{
   border-radius: 15px;
   box-shadow: 0 2px 3px rgba(0,0,0,.1), 3px 3px 8px rgba(0,0,0,.1);
+  // box-shadow: 0 2px 3px $secondColor, 3px 3px 8px $secondColor;
+  @media(max-width: 640px){
+    margin: 0;
+  }
 }
+
+// @mixin underline {
+//     border-bottom: 1px solid red;
+// }
+
+
 
 .container{
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 100%;
   max-width: 100%;
-  margin: 0 auto;
+  margin: 10 10 10 10;
   padding: 0 auto;
 
   .nav{
@@ -49,7 +59,7 @@ div{
   }
   .header{
     text-align: center;
-    width:50%;
+    width: 50%;
     min-height: 80px;
     line-height: 80px;
     @media(max-width: 640px){
@@ -84,9 +94,25 @@ div{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-right: 10px;
+    margin-right: 5px;
     &table, th, td, tr{
       border: 1px solid $secondColor;
+      padding: 8px;
+    }
+    &table{
+      border-radius: 10px;
+    }
+    thead th:first-child{
+      border-radius: 10px 0 0 0;
+    }
+    thead th:last-child {
+    border-radius: 0 10px 0 0;
+    }
+    tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+    }
+    tbody tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
     }
     @media(max-width: 640px){
       width: 100%;
@@ -95,13 +121,13 @@ div{
   }
   .sectioncalc{
     @include boxstyle;
-    width:50%;
+    width: 50%;
     min-height: 450px;
-    background-color: $secondColor;
+    background-color: $mainColor;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 10px;
+    margin-left: 5px;
     @media(max-width: 640px){
       width: 100%;
       margin-left: 0px;
@@ -128,16 +154,18 @@ div{
   }
   .inputholder input{
     padding: 10px;
+    border: 1px solid $secondColor;
     border-radius: 15px;
     width: 100%;
     cursor: pointer;
   }
   input:focus{
-      outline-color: $secondColor;
+      outline-color: $mainColor;
     }
   .inputholder select{
     font-size: 0.8rem;
     border-radius: 15px;
+    border: 1px solid $secondColor;
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
@@ -147,7 +175,10 @@ div{
     overflow-y: auto;
   }
   select:focus{
-    outline-color: $secondColor;
+    outline-color: $mainColor;
+  }
+  option{
+    padding: 3px;
   }
   option:hover {
   background-color : $secondColor;
@@ -190,13 +221,14 @@ div{
   }
   button{
     background-color: $mainColor;
+    border: 1px solid $secondColor;
     font-weight: bold;
     width: 200px;
     height: 50px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 1rem;
-    outline-color: $secondColor;
+    outline-color: $mainColor;
   }
   .clicked{
     background-color: $mainColor;
