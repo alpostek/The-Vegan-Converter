@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,10 +73,10 @@
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1);
+var content = __webpack_require__(3);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
+var update = __webpack_require__(7)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -94,344 +94,6 @@ if(false) {
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(6)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0 auto;\n  padding: 0 auto;\n  font-family: 'Dosis', sans-serif; }\n\nhtml {\n  font-size: 20px; }\n\ndiv {\n  display: flex; }\n\n.container {\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: column;\n  width: 100%;\n  max-width: 100%;\n  margin: 0 auto;\n  padding: 0 auto; }\n  .container .nav {\n    width: 100%;\n    background-color: #EEF0F0;\n    text-align: center;\n    min-height: 80px;\n    font-size: 2rem;\n    line-height: 80px; }\n  .container .headersection {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n    width: 100%; }\n    @media (max-width: 640px) {\n      .container .headersection {\n        display: table; } }\n  .container .header {\n    text-align: center;\n    width: 50%;\n    min-height: 80px;\n    line-height: 80px; }\n  .container .sectionmain {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n    width: 100%; }\n    @media (max-width: 640px) {\n      .container .sectionmain {\n        display: table; } }\n  .container .sectiontable {\n    width: 50%;\n    min-height: 400px;\n    background-color: #EEF0F0;\n    padding-top: 10px;\n    display: flex;\n    justify-content: center;\n    flex-direction: column; }\n    .container .sectiontabletable, .container .sectiontable th, .container .sectiontable td, .container .sectiontable tr {\n      border: 1px solid #9F47E5; }\n    @media (max-width: 640px) {\n      .container .sectiontable {\n        width: 100%; } }\n  .container .sectioncalc {\n    width: 50%;\n    min-height: 400px;\n    background-color: #9F47E5;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between; }\n    @media (max-width: 640px) {\n      .container .sectioncalc {\n        width: 100%; } }\n  .container .twocolholder {\n    display: flex;\n    margin: 10px 0 0 0;\n    flex-direction: row;\n    padding-left: 10px;\n    padding-right: 10px;\n    box-sizing: border-box; }\n    @media (max-width: 640px) {\n      .container .twocolholder {\n        display: table;\n        width: 100%; } }\n  .container .inputholder {\n    display: flex;\n    flex-direction: column;\n    width: 50%;\n    margin-left: 10px;\n    margin-right: 10px;\n    padding-top: 10px; }\n  .container .inputholder input {\n    padding: 10px;\n    width: 100%;\n    cursor: pointer; }\n  .container .inputholder select {\n    font-size: 0.8rem;\n    padding-top: 5px;\n    padding-left: 5px;\n    padding-right: 5px;\n    padding-bottom: 5px;\n    width: 100%;\n    cursor: pointer; }\n  .container .selectholder {\n    padding-left: 0;\n    width: 50%; }\n  .container .responseholder {\n    padding-top: 10px;\n    width: 33.33%;\n    width: 50%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-around;\n    padding-right: 10px;\n    padding-left: 10px;\n    font-size: 0.7rem;\n    box-sizing: border-box;\n    margin: 0 0 0 0; }\n  .container .tip {\n    margin-top: 30px;\n    padding: 10px;\n    box-sizing: border-box;\n    line-height: 30px;\n    font-size: 1rem;\n    border-radius: 5px;\n    text-align: center; }\n  .container .btnholder {\n    padding-top: 10px; }\n  .container button {\n    background-color: #EEF0F0;\n    font-weight: bold;\n    width: 200px;\n    height: 50px;\n    cursor: pointer;\n    border-radius: 5px;\n    font-size: 1rem; }\n  .container .clicked {\n    background-color: #EEF0F0; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-var stylesInDom = {},
-	memoize = function(fn) {
-		var memo;
-		return function () {
-			if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-			return memo;
-		};
-	},
-	isOldIE = memoize(function() {
-		return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
-	}),
-	getHeadElement = memoize(function () {
-		return document.head || document.getElementsByTagName("head")[0];
-	}),
-	singletonElement = null,
-	singletonCounter = 0,
-	styleElementsInsertedAtTop = [];
-
-module.exports = function(list, options) {
-	if(typeof DEBUG !== "undefined" && DEBUG) {
-		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-
-	// By default, add <style> tags to the bottom of <head>.
-	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-
-	var styles = listToStyles(list);
-	addStylesToDom(styles, options);
-
-	return function update(newList) {
-		var mayRemove = [];
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-		if(newList) {
-			var newStyles = listToStyles(newList);
-			addStylesToDom(newStyles, options);
-		}
-		for(var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-			if(domStyle.refs === 0) {
-				for(var j = 0; j < domStyle.parts.length; j++)
-					domStyle.parts[j]();
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-}
-
-function addStylesToDom(styles, options) {
-	for(var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-		if(domStyle) {
-			domStyle.refs++;
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles(list) {
-	var styles = [];
-	var newStyles = {};
-	for(var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-		if(!newStyles[id])
-			styles.push(newStyles[id] = {id: id, parts: [part]});
-		else
-			newStyles[id].parts.push(part);
-	}
-	return styles;
-}
-
-function insertStyleElement(options, styleElement) {
-	var head = getHeadElement();
-	var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-	if (options.insertAt === "top") {
-		if(!lastStyleElementInsertedAtTop) {
-			head.insertBefore(styleElement, head.firstChild);
-		} else if(lastStyleElementInsertedAtTop.nextSibling) {
-			head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			head.appendChild(styleElement);
-		}
-		styleElementsInsertedAtTop.push(styleElement);
-	} else if (options.insertAt === "bottom") {
-		head.appendChild(styleElement);
-	} else {
-		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-	}
-}
-
-function removeStyleElement(styleElement) {
-	styleElement.parentNode.removeChild(styleElement);
-	var idx = styleElementsInsertedAtTop.indexOf(styleElement);
-	if(idx >= 0) {
-		styleElementsInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement(options) {
-	var styleElement = document.createElement("style");
-	styleElement.type = "text/css";
-	insertStyleElement(options, styleElement);
-	return styleElement;
-}
-
-function createLinkElement(options) {
-	var linkElement = document.createElement("link");
-	linkElement.rel = "stylesheet";
-	insertStyleElement(options, linkElement);
-	return linkElement;
-}
-
-function addStyle(obj, options) {
-	var styleElement, update, remove;
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-		styleElement = singletonElement || (singletonElement = createStyleElement(options));
-		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-	} else if(obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function") {
-		styleElement = createLinkElement(options);
-		update = updateLink.bind(null, styleElement);
-		remove = function() {
-			removeStyleElement(styleElement);
-			if(styleElement.href)
-				URL.revokeObjectURL(styleElement.href);
-		};
-	} else {
-		styleElement = createStyleElement(options);
-		update = applyToTag.bind(null, styleElement);
-		remove = function() {
-			removeStyleElement(styleElement);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle(newObj) {
-		if(newObj) {
-			if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-				return;
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag(styleElement, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (styleElement.styleSheet) {
-		styleElement.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = styleElement.childNodes;
-		if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-		if (childNodes.length) {
-			styleElement.insertBefore(cssNode, childNodes[index]);
-		} else {
-			styleElement.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag(styleElement, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		styleElement.setAttribute("media", media)
-	}
-
-	if(styleElement.styleSheet) {
-		styleElement.styleSheet.cssText = css;
-	} else {
-		while(styleElement.firstChild) {
-			styleElement.removeChild(styleElement.firstChild);
-		}
-		styleElement.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink(linkElement, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	if(sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = linkElement.href;
-
-	linkElement.href = URL.createObjectURL(blob);
-
-	if(oldSrc)
-		URL.revokeObjectURL(oldSrc);
-}
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(0);
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  var helper = document.getElementById("helper");
-
-  helper.addEventListener("click", function (event) {
-    var eggVal = document.getElementById("inputEggs").value;
-    var productToConvTo = document.getElementById("replacer").value;
-    var result = document.getElementById("result");
-    var tip = document.querySelectorAll(".tip");
-
-    if (eggVal > 0) {
-      var val = eggVal;
-      var toConvert = parseFloat(val);
-      var hint = "";
-      var banan = "Podaną ilość bananów należy zmiksować na puree. Nadają lekko wyczuwalny posmak";
-      var jablko = "Polecane szczególnie do wilgotnych i puszystych ciast";
-      var siemie = "Świeżo zmielone siemię zmieszać z wodą w podanych proporcjach. Nadaje lekko orzechowy posmak";
-      var sTofu = "Podaną ilość zmiksować lub rozgnieść widelcem";
-      var chia = "Zmieszać chia z wodą w podanych proporcjach i odczekać, aż nabiorą żelowej konsystencji";
-      var tahi = "Daje mocno wyczuwalny smak.";
-      var dynia = "Dobrze komponuje się z korzennymi przyprawami";
-
-      switch (productToConvTo) {
-        case "banana":
-          result = toConvert + " (w sztukach)";hint = banan;
-          break;
-        case "applesauce":
-          result = toConvert * 0.5 + " (w szklankach)";hint = jablko;
-          break;
-        case "flaxseed":
-          result = toConvert * 1.5 + " (w \u0142y\u017Ckach) + woda (w \u0142y\u017Ckach): " + toConvert * 1.5 * 3;hint = siemie;
-          break;
-        case "pumpkin":
-          result = toConvert * 0.5 + " (w szklankach)";hint = dynia;
-          break;
-        case "potatoFlour":
-          result = toConvert * 2 + " (w \u0142y\u017Ckach) + woda (w \u0142y\u017Ckach: " + toConvert * 2 * 3 + ")";
-          break;
-        case "silkenTofu":
-          result = toConvert * 0.5 + " (w szklankach)";hint = sTofu;
-          break;
-        case "soyYoghurt":
-          result = toConvert * 0.5 + " (w szklankach)";
-          break;
-        case "chia":
-          result = toConvert + "(w \u0142y\u017Ckach) + woda (w \u0142y\u017Ckach: " + toConvert * 3 + ")";hint = chia;
-          break;
-        case "tahini":
-          result = toConvert * 3 + " (w \u0142y\u017Ckach)";hint = tahi;
-          break;
-        case "cornstarch":
-          result = toConvert * 2 + " + woda (w \u0142y\u017Ckach: " + toConvert * 3 + ")";
-      }
-    } else if (eggVal <= 0 || (eggVal = NaN)) {
-      result = "Podaj prawidłową wartość";
-      hint = " ";
-    }
-
-    document.getElementById("result").innerText = result;
-    document.getElementById("hint").innerText = hint;
-  });
-});
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -552,7 +214,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 5 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -566,9 +228,9 @@ function fromByteArray (uint8) {
 
 
 
-var base64 = __webpack_require__(4)
-var ieee754 = __webpack_require__(7)
-var isArray = __webpack_require__(8)
+var base64 = __webpack_require__(1)
+var ieee754 = __webpack_require__(5)
+var isArray = __webpack_require__(6)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -2346,10 +2008,24 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
-/* 6 */
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0 auto;\n  padding: 0 auto;\n  font-family: 'Dosis', sans-serif; }\n\nhtml {\n  font-size: 20px; }\n\ndiv {\n  display: flex; }\n\n.container {\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: column;\n  width: 100%;\n  max-width: 100%;\n  margin: 0 auto;\n  padding: 0 auto; }\n  .container .nav {\n    border-radius: 15px;\n    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 3px 3px 8px rgba(0, 0, 0, 0.1);\n    width: 100%;\n    background-color: #EEF0F0;\n    text-align: center;\n    min-height: 80px;\n    font-size: 2rem;\n    line-height: 80px; }\n  .container .headersection {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n    width: 100%; }\n    @media (max-width: 640px) {\n      .container .headersection {\n        display: table; } }\n  .container .header {\n    text-align: center;\n    width: 50%;\n    min-height: 80px;\n    line-height: 80px; }\n    @media (max-width: 640px) {\n      .container .header {\n        line-height: 40px; } }\n  @media (max-width: 640px) {\n    .container #sec {\n      display: none; } }\n  @media (min-width: 640px) {\n    .container #hide {\n      display: none; } }\n  .container .sectionmain {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n    width: 100%; }\n    @media (max-width: 640px) {\n      .container .sectionmain {\n        display: table; } }\n  .container .sectiontable {\n    border-radius: 15px;\n    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 3px 3px 8px rgba(0, 0, 0, 0.1);\n    width: 50%;\n    min-height: 450px;\n    background-color: #EEF0F0;\n    padding-top: 10px;\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    margin-right: 10px; }\n    .container .sectiontabletable, .container .sectiontable th, .container .sectiontable td, .container .sectiontable tr {\n      border: 1px solid #9F47E5; }\n    @media (max-width: 640px) {\n      .container .sectiontable {\n        width: 100%;\n        margin-right: 0px; } }\n  .container .sectioncalc {\n    border-radius: 15px;\n    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 3px 3px 8px rgba(0, 0, 0, 0.1);\n    width: 50%;\n    min-height: 450px;\n    background-color: #9F47E5;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    margin-left: 10px; }\n    @media (max-width: 640px) {\n      .container .sectioncalc {\n        width: 100%;\n        margin-left: 0px; } }\n  .container .twocolholder {\n    display: flex;\n    margin: 10px 0 0 0;\n    flex-direction: row;\n    padding-left: 10px;\n    padding-right: 10px;\n    box-sizing: border-box; }\n    @media (max-width: 640px) {\n      .container .twocolholder {\n        width: 100%; } }\n  .container .inputholder {\n    display: flex;\n    flex-direction: column;\n    width: 50%;\n    margin-left: 10px;\n    margin-right: 10px;\n    padding-top: 10px; }\n  .container .inputholder input {\n    padding: 10px;\n    border-radius: 15px;\n    width: 100%;\n    cursor: pointer; }\n  .container input:focus {\n    outline-color: #9F47E5; }\n  .container .inputholder select {\n    font-size: 0.8rem;\n    border-radius: 15px;\n    padding-top: 5px;\n    padding-left: 5px;\n    padding-right: 5px;\n    padding-bottom: 5px;\n    width: 100%;\n    cursor: pointer;\n    overflow-y: auto; }\n  .container select:focus {\n    outline-color: #9F47E5; }\n  .container option:hover {\n    background-color: #9F47E5;\n    color: #EEF0F0; }\n  .container .selectholder {\n    padding-left: 0;\n    width: 50%; }\n  .container .responseholder {\n    padding-top: 10px;\n    width: 33.33%;\n    width: 50%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-around;\n    padding-right: 10px;\n    padding-left: 10px;\n    font-size: 0.7rem;\n    box-sizing: border-box;\n    margin: 0 0 0 0; }\n  .container .tip {\n    margin-top: 30px;\n    padding: 10px;\n    box-sizing: border-box;\n    line-height: 30px;\n    font-size: 1rem;\n    border-radius: 5px;\n    text-align: center; }\n  @media (max-width: 640px) {\n    .container .hint {\n      font-size: 0.6rem; } }\n  .container .btnholder {\n    padding-top: 10px;\n    padding-bottom: 10px; }\n  .container button {\n    background-color: #EEF0F0;\n    font-weight: bold;\n    width: 200px;\n    height: 50px;\n    cursor: pointer;\n    border-radius: 5px;\n    font-size: 1rem;\n    outline-color: #9F47E5; }\n  .container .clicked {\n    background-color: #EEF0F0; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {/*
@@ -2428,10 +2104,10 @@ function toComment(sourceMap) {
   return '/*# ' + data + ' */';
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
-/* 7 */
+/* 5 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -2521,7 +2197,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 8 */
+/* 6 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -2532,7 +2208,259 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 9 */
+/* 7 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+var stylesInDom = {},
+	memoize = function(fn) {
+		var memo;
+		return function () {
+			if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+			return memo;
+		};
+	},
+	isOldIE = memoize(function() {
+		return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
+	}),
+	getHeadElement = memoize(function () {
+		return document.head || document.getElementsByTagName("head")[0];
+	}),
+	singletonElement = null,
+	singletonCounter = 0,
+	styleElementsInsertedAtTop = [];
+
+module.exports = function(list, options) {
+	if(typeof DEBUG !== "undefined" && DEBUG) {
+		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+	// By default, add <style> tags to the bottom of <head>.
+	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+	var styles = listToStyles(list);
+	addStylesToDom(styles, options);
+
+	return function update(newList) {
+		var mayRemove = [];
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+		if(newList) {
+			var newStyles = listToStyles(newList);
+			addStylesToDom(newStyles, options);
+		}
+		for(var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+			if(domStyle.refs === 0) {
+				for(var j = 0; j < domStyle.parts.length; j++)
+					domStyle.parts[j]();
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+}
+
+function addStylesToDom(styles, options) {
+	for(var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+		if(domStyle) {
+			domStyle.refs++;
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles(list) {
+	var styles = [];
+	var newStyles = {};
+	for(var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+		if(!newStyles[id])
+			styles.push(newStyles[id] = {id: id, parts: [part]});
+		else
+			newStyles[id].parts.push(part);
+	}
+	return styles;
+}
+
+function insertStyleElement(options, styleElement) {
+	var head = getHeadElement();
+	var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+	if (options.insertAt === "top") {
+		if(!lastStyleElementInsertedAtTop) {
+			head.insertBefore(styleElement, head.firstChild);
+		} else if(lastStyleElementInsertedAtTop.nextSibling) {
+			head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			head.appendChild(styleElement);
+		}
+		styleElementsInsertedAtTop.push(styleElement);
+	} else if (options.insertAt === "bottom") {
+		head.appendChild(styleElement);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+	}
+}
+
+function removeStyleElement(styleElement) {
+	styleElement.parentNode.removeChild(styleElement);
+	var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+	if(idx >= 0) {
+		styleElementsInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement(options) {
+	var styleElement = document.createElement("style");
+	styleElement.type = "text/css";
+	insertStyleElement(options, styleElement);
+	return styleElement;
+}
+
+function createLinkElement(options) {
+	var linkElement = document.createElement("link");
+	linkElement.rel = "stylesheet";
+	insertStyleElement(options, linkElement);
+	return linkElement;
+}
+
+function addStyle(obj, options) {
+	var styleElement, update, remove;
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+		styleElement = singletonElement || (singletonElement = createStyleElement(options));
+		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+	} else if(obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function") {
+		styleElement = createLinkElement(options);
+		update = updateLink.bind(null, styleElement);
+		remove = function() {
+			removeStyleElement(styleElement);
+			if(styleElement.href)
+				URL.revokeObjectURL(styleElement.href);
+		};
+	} else {
+		styleElement = createStyleElement(options);
+		update = applyToTag.bind(null, styleElement);
+		remove = function() {
+			removeStyleElement(styleElement);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle(newObj) {
+		if(newObj) {
+			if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+				return;
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag(styleElement, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (styleElement.styleSheet) {
+		styleElement.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = styleElement.childNodes;
+		if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+		if (childNodes.length) {
+			styleElement.insertBefore(cssNode, childNodes[index]);
+		} else {
+			styleElement.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag(styleElement, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		styleElement.setAttribute("media", media)
+	}
+
+	if(styleElement.styleSheet) {
+		styleElement.styleSheet.cssText = css;
+	} else {
+		while(styleElement.firstChild) {
+			styleElement.removeChild(styleElement.firstChild);
+		}
+		styleElement.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink(linkElement, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	if(sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = linkElement.href;
+
+	linkElement.href = URL.createObjectURL(blob);
+
+	if(oldSrc)
+		URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports) {
 
 var g;
@@ -2557,6 +2485,78 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(0);
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  var helper = document.getElementById("helper");
+
+  helper.addEventListener("click", function (event) {
+    var eggVal = document.getElementById("inputEggs").value;
+    var productToConvTo = document.getElementById("replacer").value;
+    var result = document.getElementById("result");
+    var tip = document.querySelectorAll(".tip");
+
+    if (eggVal > 0) {
+      var val = eggVal;
+      var toConvert = parseFloat(val);
+      var hint = "";
+      var banan = "Podaną ilość bananów należy zmiksować na puree. Nadają lekko wyczuwalny posmak";
+      var jablko = "Polecane szczególnie do wilgotnych i puszystych ciast";
+      var siemie = "Świeżo zmielone siemię zmieszać z wodą. Nadaje lekko orzechowy posmak";
+      var sTofu = "Podaną ilość zmiksować lub rozgnieść widelcem";
+      var chia = "Zmieszać chia z wodą w podanych proporcjach i odczekać, aż nabiorą żelowej konsystencji";
+      var tahi = "Daje mocno wyczuwalny smak.";
+      var dynia = "Dobrze komponuje się z korzennymi przyprawami";
+
+      switch (productToConvTo) {
+        case "banana":
+          result = toConvert + " (w sztukach)";hint = banan;
+          break;
+        case "applesauce":
+          result = toConvert * 0.5 + " (w szklankach)";hint = jablko;
+          break;
+        case "flaxseed":
+          result = toConvert * 1.5 + " (w \u0142y\u017Ckach) + woda (w \u0142y\u017Ckach): " + toConvert * 1.5 * 3;hint = siemie;
+          break;
+        case "pumpkin":
+          result = toConvert * 0.5 + " (w szklankach)";hint = dynia;
+          break;
+        case "potatoFlour":
+          result = toConvert * 2 + " (w \u0142y\u017Ckach) + woda (w \u0142y\u017Ckach: " + toConvert * 2 * 3 + ")";
+          break;
+        case "silkenTofu":
+          result = toConvert * 0.5 + " (w szklankach)";hint = sTofu;
+          break;
+        case "soyYoghurt":
+          result = toConvert * 0.5 + " (w szklankach)";
+          break;
+        case "chia":
+          result = toConvert + "(w \u0142y\u017Ckach) + woda (w \u0142y\u017Ckach: " + toConvert * 3 + ")";hint = chia;
+          break;
+        case "tahini":
+          result = toConvert * 3 + " (w \u0142y\u017Ckach)";hint = tahi;
+          break;
+        case "cornstarch":
+          result = toConvert * 2 + " + woda (w \u0142y\u017Ckach: " + toConvert * 3 + ")";
+      }
+    } else if (eggVal <= 0 || (eggVal = NaN)) {
+      result = "Podaj prawidłową wartość";
+      hint = " ";
+    }
+
+    document.getElementById("result").innerText = result;
+    document.getElementById("hint").innerText = hint;
+  });
+});
 
 /***/ })
 /******/ ]);

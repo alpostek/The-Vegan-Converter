@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
       var hint="";
       var banan = "Podaną ilość bananów należy zmiksować na puree. Nadają lekko wyczuwalny posmak"
       var jablko = "Polecane szczególnie do wilgotnych i puszystych ciast"
-      var siemie = "Świeżo zmielone siemię zmieszać z wodą w podanych proporcjach. Nadaje lekko orzechowy posmak"
+      var siemie = "Świeżo zmielone siemię zmieszać z wodą. Nadaje lekko orzechowy posmak"
       var sTofu = "Podaną ilość zmiksować lub rozgnieść widelcem"
       var chia = "Zmieszać chia z wodą w podanych proporcjach i odczekać, aż nabiorą żelowej konsystencji"
       var tahi = "Daje mocno wyczuwalny smak."

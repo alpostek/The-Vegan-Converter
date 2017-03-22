@@ -15,6 +15,11 @@ div{
   display: flex;
 }
 
+@mixin boxstyle{
+  border-radius: 15px;
+  box-shadow: 0 2px 3px rgba(0,0,0,.1), 3px 3px 8px rgba(0,0,0,.1);
+}
+
 .container{
   display: flex;
   flex-wrap: wrap;
@@ -25,6 +30,7 @@ div{
   padding: 0 auto;
 
   .nav{
+    @include boxstyle;
     width: 100%;
     background-color: $mainColor;
     text-align: center;
@@ -46,9 +52,17 @@ div{
     width:50%;
     min-height: 80px;
     line-height: 80px;
+    @media(max-width: 640px){
+      line-height: 40px;
+    }
   }
   #sec{
     @media(max-width: 640px){
+      display: none;
+    }
+  }
+  #hide{
+    @media(min-width: 640px){
       display: none;
     }
   }
@@ -62,30 +76,35 @@ div{
     }
   }
   .sectiontable{
+    @include boxstyle;
     width: 50%;
-    min-height: 400px;
+    min-height: 450px;
     background-color: $mainColor;
     padding-top: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-right: 10px;
     &table, th, td, tr{
       border: 1px solid $secondColor;
     }
     @media(max-width: 640px){
       width: 100%;
+      margin-right: 0px;
     }
   }
   .sectioncalc{
+    @include boxstyle;
     width:50%;
-    min-height: 400px;
+    min-height: 450px;
     background-color: $secondColor;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // flex-wrap: wrap;
+    margin-left: 10px;
     @media(max-width: 640px){
       width: 100%;
+      margin-left: 0px;
     }
   }
   .twocolholder{
@@ -96,33 +115,43 @@ div{
     padding-right: 10px;
     box-sizing: border-box;
     @media(max-width: 640px){
-      display: table;
       width: 100%;
     }
   }
   .inputholder{
     display: flex;
     flex-direction: column;
-    // width: 33.33%;
     width: 50%;
     margin-left: 10px;
     margin-right: 10px;
     padding-top: 10px;
   }
   .inputholder input{
-    // margin:10px;
     padding: 10px;
+    border-radius: 15px;
     width: 100%;
     cursor: pointer;
   }
+  input:focus{
+      outline-color: $secondColor;
+    }
   .inputholder select{
     font-size: 0.8rem;
+    border-radius: 15px;
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
     width: 100%;
     cursor: pointer;
+    overflow-y: auto;
+  }
+  select:focus{
+    outline-color: $secondColor;
+  }
+  option:hover {
+  background-color : $secondColor;
+  color: $mainColor;
   }
   .selectholder{
     padding-left: 0;
@@ -131,7 +160,6 @@ div{
   .responseholder{
     padding-top: 10px;
     width: 33.33%;
-    // width: 40%;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -152,11 +180,13 @@ div{
     text-align: center;
   }
   .hint{
-    // // word-wrap: break-word;
-    // padding-top: 10px;
+    @media(max-width: 640px){
+      font-size: 0.6rem;
+    }
   }
   .btnholder{
     padding-top: 10px;
+    padding-bottom: 10px;
   }
   button{
     background-color: $mainColor;
@@ -166,6 +196,7 @@ div{
     cursor: pointer;
     border-radius: 5px;
     font-size: 1rem;
+    outline-color: $secondColor;
   }
   .clicked{
     background-color: $mainColor;
