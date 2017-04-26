@@ -3,6 +3,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var helper = document.getElementById("helper")
 
+  var img_one = document.querySelector(".circleholder div:first-child");
+  var img_two = document.querySelector(".circleholder div:nth-child(2)");
+  var img_three = document.querySelector(".circleholder div:nth-child(3)");
+
+  var bgrToChange = document.querySelector(".nav");
+
+  img_one.addEventListener("click", function(){
+    bgrToChange.style.backgroundImage = "url('img/slide1.png')";
+    console.log(bgrToChange)
+  })
+
+  img_two.addEventListener("click", function(){
+    bgrToChange.style.backgroundImage = "url('img/slide2.png')";
+  })
+
+  img_three.addEventListener("click", function(){
+    bgrToChange.style.backgroundImage = "url('img/slide3.png')";
+  })
+
   helper.addEventListener("click", function(event){
     var eggVal = document.getElementById("inputEggs").value
     var productToConvTo = document.getElementById("replacer").value
@@ -50,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       document.getElementById("result").innerText = result;
       document.getElementById("hint").innerText = hint;
+
 
 
     })

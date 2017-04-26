@@ -2,57 +2,114 @@
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0 auto;
-  font-family: 'Lato', sans-serif;
 }
 html{
   font-size: 20px;
 }
 
 $mainColor: #EEF0F0;
-// $secondColor: #9F47E5;
 $secondColor: #ab92e1;
+
+$greyBackground: #d2d2d2;
+$lightViolet: #ab92e1;
+$darkViolet: #523d80;
+$yellowBtn: #f5bb30;
+
+
 
 div{
   display: flex;
 }
 
+@mixin violets{
+  color: white;
+  background-color: $lightViolet;
+  border-bottom: 3px solid $darkViolet;
+}
+
+
 @mixin boxstyle{
   border-radius: 15px;
   box-shadow: 0 2px 3px rgba(0,0,0,.1), 3px 3px 8px rgba(0,0,0,.1);
-  // box-shadow: 0 2px 3px $secondColor, 3px 3px 8px $secondColor;
   @media(max-width: 640px){
     margin: 0;
   }
 }
 
-// @mixin underline {
-//     border-bottom: 1px solid red;
-// }
+@mixin media{
+  @media(max-width: 640px){
+    margin: 0;
+  }
+}
 
+.lato{
+  font-family: 'Lato', sans-serif;
+}
 
+.roboto_slab{
+  font-family: 'Roboto Slab', serif;
+}
 
 .container{
-  display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   max-width: 100%;
-  margin: 10 10 10 10;
+  margin: 0 0 0 0;
   padding: 0 auto;
 
   .nav{
-    @include boxstyle;
+    @include media;
     width: 100%;
-    background-color: $mainColor;
-    text-align: center;
-    min-height: 80px;
+    background-image: url("../img/slide2.png");
+    background-size: cover;
+    min-height: 230px;
     font-size: 2rem;
-    line-height: 80px;
+    display: flex;
+    flex-direction: column;
+    .titleholder{
+      position: relative;
+      z-index: 5;
+      align-self: flex-start;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: "Roboto", sans-serif;
+      text-transform: uppercase;
+      height: 15%;
+      width: 30%;
+      margin-top: 5%;
+      margin-left: 10%;
+      letter-spacing: 2px;
+    }
+    .titlebackground{
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #b3b3b3;
+      opacity: 0.3;
+    }
+    .circleholder{
+      height: 100px;
+      width: 100px;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .circle{
+      border-radius: 50%;
+      border: 3px solid #b3b3b3;
+      width: 20%;
+      height: 20%;
+      background-color: #d2d2d2;
+      margin-bottom: 20px;
+    }
   }
   .headersection{
-    display:flex;
-    flex-direction: row;
     justify-content: space-around;
     width: 100%;
+    background-color: $greyBackground;
     @media(max-width: 640px){
       display: table;
     }
@@ -60,8 +117,13 @@ div{
   .header{
     text-align: center;
     width: 50%;
-    min-height: 80px;
-    line-height: 80px;
+    min-height: 60px;
+    // line-height: 80px;
+    background-color: $greyBackground;
+    align-items: flex-end;
+    p{
+      margin-bottom: 10px;
+    }
     @media(max-width: 640px){
       line-height: 40px;
     }
@@ -77,42 +139,34 @@ div{
     }
   }
   .sectionmain{
-    display: flex;
-    flex-direction: row;
     justify-content: space-around;
     width: 100%;
+    background-color: $greyBackground;
     @media(max-width: 640px){
       display: table;
     }
   }
   .sectiontable{
-    @include boxstyle;
     width: 50%;
     min-height: 450px;
-    background-color: $mainColor;
-    padding-top: 10px;
-    display: flex;
-    justify-content: center;
+    background-color: $greyBackground;
+    // justify-content: center;
     flex-direction: column;
-    margin-right: 5px;
-    &table, th, td, tr{
-      border: 1px solid $secondColor;
+    table{
+      border-collapse: collapse;
+      // margin-top: ;
+    }
+    &thead, th, td, tr{
       padding: 8px;
     }
-    &table{
-      border-radius: 10px;
+    thead{
+      @include violets;
     }
-    thead th:first-child{
-      border-radius: 10px 0 0 0;
+    tr{
+      border-bottom: 1px dashed $lightViolet;
     }
-    thead th:last-child {
-    border-radius: 0 10px 0 0;
-    }
-    tbody tr:last-child td:first-child {
-    border-radius: 0 0 0 10px;
-    }
-    tbody tr:last-child td:last-child {
-    border-radius: 0 0 10px 0;
+    tbody{
+      background-color: white;
     }
     @media(max-width: 640px){
       width: 100%;
@@ -120,14 +174,11 @@ div{
     }
   }
   .sectioncalc{
-    @include boxstyle;
     width: 50%;
     min-height: 450px;
-    background-color: $mainColor;
-    display: flex;
+    background-color: $greyBackground;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 5px;
     @media(max-width: 640px){
       width: 100%;
       margin-left: 0px;
@@ -135,10 +186,10 @@ div{
   }
   .twocolholder{
     display: flex;
-    margin: 10px 0 0 0;
+    margin: 0 0 0 0;
     flex-direction: row;
-    padding-left: 10px;
-    padding-right: 10px;
+    // padding-left: 10px;
+    // padding-right: 10px;
     box-sizing: border-box;
     @media(max-width: 640px){
       width: 100%;
@@ -146,26 +197,42 @@ div{
   }
   .inputholder{
     display: flex;
+    // background-color: red;
     flex-direction: column;
     width: 50%;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-top: 10px;
+    // margin-left: 10px;
+    // margin-right: 10px;
+    // padding-top: 10px;
   }
   .inputholder input{
-    padding: 10px;
-    border: 1px solid $secondColor;
-    border-radius: 15px;
-    width: 100%;
+    width: 50%;
     cursor: pointer;
+    text-align: center;
+  }
+  .inputfirst{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .inputlabel{
+    @include violets;
+    width: 50%;
+    padding: 6px;
+  }
+  .inputsecond{
+    width: 100%;
+    label{
+      @include violets;
+      padding: 6px;
+      width: 100%;
+      text-align: center;
+    }
+    margin-top: 10px;
   }
   input:focus{
       outline-color: $mainColor;
     }
   .inputholder select{
     font-size: 0.8rem;
-    border-radius: 15px;
-    border: 1px solid $secondColor;
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
@@ -189,12 +256,12 @@ div{
     width: 50%;
   }
   .responseholder{
-    padding-top: 10px;
-    width: 33.33%;
+    // padding-top: 10px;
+    // width: 33.33%;
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-right: 10px;
     padding-left: 10px;
     font-size: 0.7rem;
@@ -202,35 +269,55 @@ div{
     margin: 0 0 0 0;
   }
   .tip{
-    margin-top: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     padding: 10px;
     box-sizing: border-box;
     line-height: 30px;
     font-size: 1rem;
-    border-radius: 5px;
     text-align: center;
+    width: 100%;
+  }
+  #brdr{
+    background-color: $darkViolet;
+    height: 3px;
+    width: 50%;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
   .hint{
     @media(max-width: 640px){
       font-size: 0.6rem;
     }
   }
+  .eggimage{
+    background-image: url("../img/egg-icon-53x53.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50%;
+    min-height: 55px;
+  }
+  #result{
+    width: 50%;
+  }
   .btnholder{
     padding-top: 10px;
     padding-bottom: 10px;
   }
   button{
-    background-color: $mainColor;
-    border: 1px solid $secondColor;
+    background-color: $yellowBtn;
+    border: 1px solid $yellowBtn;
     font-weight: bold;
     width: 200px;
     height: 50px;
     cursor: pointer;
-    border-radius: 15px;
     font-size: 1rem;
-    outline-color: $mainColor;
+    outline-color: $yellowBtn;
   }
-  .clicked{
-    background-color: $mainColor;
-  }
+}
+.footer{
+  font-size: 0.5rem;
+  min-height: 30px;
+  align-items: center;
+  justify-content: center;
 }

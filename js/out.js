@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -82,8 +82,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js!./main.scss", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js!./main.scss");
+		module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js?sourceMap!./main.scss", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js?sourceMap!./main.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -2008,7 +2008,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
 /***/ }),
 /* 3 */
@@ -2019,7 +2019,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0 auto;\n  padding: 0 auto;\n  font-family: 'Lato', sans-serif; }\n\nhtml {\n  font-size: 20px; }\n\ndiv {\n  display: flex; }\n\n.container {\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: column;\n  max-width: 100%;\n  margin: 10 10 10 10;\n  padding: 0 auto; }\n  .container .nav {\n    border-radius: 15px;\n    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 3px 3px 8px rgba(0, 0, 0, 0.1);\n    width: 100%;\n    background-color: #EEF0F0;\n    text-align: center;\n    min-height: 80px;\n    font-size: 2rem;\n    line-height: 80px; }\n    @media (max-width: 640px) {\n      .container .nav {\n        margin: 0; } }\n  .container .headersection {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n    width: 100%; }\n    @media (max-width: 640px) {\n      .container .headersection {\n        display: table; } }\n  .container .header {\n    text-align: center;\n    width: 50%;\n    min-height: 80px;\n    line-height: 80px; }\n    @media (max-width: 640px) {\n      .container .header {\n        line-height: 40px; } }\n  @media (max-width: 640px) {\n    .container #sec {\n      display: none; } }\n  @media (min-width: 640px) {\n    .container #hide {\n      display: none; } }\n  .container .sectionmain {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n    width: 100%; }\n    @media (max-width: 640px) {\n      .container .sectionmain {\n        display: table; } }\n  .container .sectiontable {\n    border-radius: 15px;\n    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 3px 3px 8px rgba(0, 0, 0, 0.1);\n    width: 50%;\n    min-height: 450px;\n    background-color: #EEF0F0;\n    padding-top: 10px;\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    margin-right: 5px; }\n    @media (max-width: 640px) {\n      .container .sectiontable {\n        margin: 0; } }\n    .container .sectiontabletable, .container .sectiontable th, .container .sectiontable td, .container .sectiontable tr {\n      border: 1px solid #ab92e1;\n      padding: 8px; }\n    .container .sectiontabletable {\n      border-radius: 10px; }\n    .container .sectiontable thead th:first-child {\n      border-radius: 10px 0 0 0; }\n    .container .sectiontable thead th:last-child {\n      border-radius: 0 10px 0 0; }\n    .container .sectiontable tbody tr:last-child td:first-child {\n      border-radius: 0 0 0 10px; }\n    .container .sectiontable tbody tr:last-child td:last-child {\n      border-radius: 0 0 10px 0; }\n    @media (max-width: 640px) {\n      .container .sectiontable {\n        width: 100%;\n        margin-right: 0px; } }\n  .container .sectioncalc {\n    border-radius: 15px;\n    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 3px 3px 8px rgba(0, 0, 0, 0.1);\n    width: 50%;\n    min-height: 450px;\n    background-color: #EEF0F0;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    margin-left: 5px; }\n    @media (max-width: 640px) {\n      .container .sectioncalc {\n        margin: 0; } }\n    @media (max-width: 640px) {\n      .container .sectioncalc {\n        width: 100%;\n        margin-left: 0px; } }\n  .container .twocolholder {\n    display: flex;\n    margin: 10px 0 0 0;\n    flex-direction: row;\n    padding-left: 10px;\n    padding-right: 10px;\n    box-sizing: border-box; }\n    @media (max-width: 640px) {\n      .container .twocolholder {\n        width: 100%; } }\n  .container .inputholder {\n    display: flex;\n    flex-direction: column;\n    width: 50%;\n    margin-left: 10px;\n    margin-right: 10px;\n    padding-top: 10px; }\n  .container .inputholder input {\n    padding: 10px;\n    border: 1px solid #ab92e1;\n    border-radius: 15px;\n    width: 100%;\n    cursor: pointer; }\n  .container input:focus {\n    outline-color: #EEF0F0; }\n  .container .inputholder select {\n    font-size: 0.8rem;\n    border-radius: 15px;\n    border: 1px solid #ab92e1;\n    padding-top: 5px;\n    padding-left: 5px;\n    padding-right: 5px;\n    padding-bottom: 5px;\n    width: 100%;\n    cursor: pointer;\n    overflow-y: auto; }\n  .container select:focus {\n    outline-color: #EEF0F0; }\n  .container option {\n    padding: 3px; }\n  .container option:hover {\n    background-color: #ab92e1;\n    color: #EEF0F0; }\n  .container .selectholder {\n    padding-left: 0;\n    width: 50%; }\n  .container .responseholder {\n    padding-top: 10px;\n    width: 33.33%;\n    width: 50%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-around;\n    padding-right: 10px;\n    padding-left: 10px;\n    font-size: 0.7rem;\n    box-sizing: border-box;\n    margin: 0 0 0 0; }\n  .container .tip {\n    margin-top: 30px;\n    padding: 10px;\n    box-sizing: border-box;\n    line-height: 30px;\n    font-size: 1rem;\n    border-radius: 5px;\n    text-align: center; }\n  @media (max-width: 640px) {\n    .container .hint {\n      font-size: 0.6rem; } }\n  .container .btnholder {\n    padding-top: 10px;\n    padding-bottom: 10px; }\n  .container button {\n    background-color: #EEF0F0;\n    border: 1px solid #ab92e1;\n    font-weight: bold;\n    width: 200px;\n    height: 50px;\n    cursor: pointer;\n    border-radius: 15px;\n    font-size: 1rem;\n    outline-color: #EEF0F0; }\n  .container .clicked {\n    background-color: #EEF0F0; }\n", ""]);
+exports.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0 auto;\n  padding: 0 auto; }\n\nhtml {\n  font-size: 20px; }\n\ndiv {\n  display: flex; }\n\n.lato {\n  font-family: 'Lato', sans-serif; }\n\n.roboto_slab {\n  font-family: 'Roboto Slab', serif; }\n\n.container {\n  flex-wrap: wrap;\n  flex-direction: column;\n  max-width: 100%;\n  margin: 0 0 0 0;\n  padding: 0 auto; }\n  .container .nav {\n    width: 100%;\n    background-image: url(" + __webpack_require__(9) + ");\n    background-size: cover;\n    min-height: 230px;\n    font-size: 2rem;\n    display: flex;\n    flex-direction: column; }\n    @media (max-width: 640px) {\n      .container .nav {\n        margin: 0; } }\n    .container .nav .titleholder {\n      position: relative;\n      z-index: 5;\n      align-self: flex-start;\n      flex-direction: column;\n      justify-content: center;\n      align-items: center;\n      font-family: \"Roboto\", sans-serif;\n      text-transform: uppercase;\n      height: 15%;\n      width: 30%;\n      margin-top: 5%;\n      margin-left: 10%;\n      letter-spacing: 2px; }\n    .container .nav .titlebackground {\n      position: absolute;\n      z-index: -1;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      background-color: #b3b3b3;\n      opacity: 0.3; }\n    .container .nav .circleholder {\n      height: 100px;\n      width: 100px;\n      justify-content: center;\n      align-items: flex-end; }\n    .container .nav .circle {\n      border-radius: 50%;\n      border: 3px solid #b3b3b3;\n      width: 20%;\n      height: 20%;\n      background-color: #d2d2d2;\n      margin-bottom: 20px; }\n  .container .headersection {\n    justify-content: space-around;\n    width: 100%;\n    background-color: #d2d2d2; }\n    @media (max-width: 640px) {\n      .container .headersection {\n        display: table; } }\n  .container .header {\n    text-align: center;\n    width: 50%;\n    min-height: 60px;\n    background-color: #d2d2d2;\n    align-items: flex-end; }\n    .container .header p {\n      margin-bottom: 10px; }\n    @media (max-width: 640px) {\n      .container .header {\n        line-height: 40px; } }\n  @media (max-width: 640px) {\n    .container #sec {\n      display: none; } }\n  @media (min-width: 640px) {\n    .container #hide {\n      display: none; } }\n  .container .sectionmain {\n    justify-content: space-around;\n    width: 100%;\n    background-color: #d2d2d2; }\n    @media (max-width: 640px) {\n      .container .sectionmain {\n        display: table; } }\n  .container .sectiontable {\n    width: 50%;\n    min-height: 450px;\n    background-color: #d2d2d2;\n    flex-direction: column; }\n    .container .sectiontable table {\n      border-collapse: collapse; }\n    .container .sectiontablethead, .container .sectiontable th, .container .sectiontable td, .container .sectiontable tr {\n      padding: 8px; }\n    .container .sectiontable thead {\n      color: white;\n      background-color: #ab92e1;\n      border-bottom: 3px solid #523d80; }\n    .container .sectiontable tr {\n      border-bottom: 1px dashed #ab92e1; }\n    .container .sectiontable tbody {\n      background-color: white; }\n    @media (max-width: 640px) {\n      .container .sectiontable {\n        width: 100%;\n        margin-right: 0px; } }\n  .container .sectioncalc {\n    width: 50%;\n    min-height: 450px;\n    background-color: #d2d2d2;\n    flex-direction: column;\n    justify-content: space-between; }\n    @media (max-width: 640px) {\n      .container .sectioncalc {\n        width: 100%;\n        margin-left: 0px; } }\n  .container .twocolholder {\n    display: flex;\n    margin: 0 0 0 0;\n    flex-direction: row;\n    box-sizing: border-box; }\n    @media (max-width: 640px) {\n      .container .twocolholder {\n        width: 100%; } }\n  .container .inputholder {\n    display: flex;\n    flex-direction: column;\n    width: 50%; }\n  .container .inputholder input {\n    width: 50%;\n    cursor: pointer;\n    text-align: center; }\n  .container .inputfirst {\n    width: 100%;\n    margin-bottom: 20px; }\n  .container .inputlabel {\n    color: white;\n    background-color: #ab92e1;\n    border-bottom: 3px solid #523d80;\n    width: 50%;\n    padding: 6px; }\n  .container .inputsecond {\n    width: 100%;\n    margin-top: 10px; }\n    .container .inputsecond label {\n      color: white;\n      background-color: #ab92e1;\n      border-bottom: 3px solid #523d80;\n      padding: 6px;\n      width: 100%;\n      text-align: center; }\n  .container input:focus {\n    outline-color: #EEF0F0; }\n  .container .inputholder select {\n    font-size: 0.8rem;\n    padding-top: 5px;\n    padding-left: 5px;\n    padding-right: 5px;\n    padding-bottom: 5px;\n    width: 100%;\n    cursor: pointer;\n    overflow-y: auto; }\n  .container select:focus {\n    outline-color: #EEF0F0; }\n  .container option {\n    padding: 3px; }\n  .container option:hover {\n    background-color: #ab92e1;\n    color: #EEF0F0; }\n  .container .selectholder {\n    padding-left: 0;\n    width: 50%; }\n  .container .responseholder {\n    width: 50%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    padding-right: 10px;\n    padding-left: 10px;\n    font-size: 0.7rem;\n    box-sizing: border-box;\n    margin: 0 0 0 0; }\n  .container .tip {\n    margin-top: 5px;\n    margin-bottom: 5px;\n    padding: 10px;\n    box-sizing: border-box;\n    line-height: 30px;\n    font-size: 1rem;\n    text-align: center;\n    width: 100%; }\n  .container #brdr {\n    background-color: #523d80;\n    height: 3px;\n    width: 50%;\n    margin-top: 5px;\n    margin-bottom: 5px; }\n  @media (max-width: 640px) {\n    .container .hint {\n      font-size: 0.6rem; } }\n  .container .eggimage {\n    background-image: url(" + __webpack_require__(8) + ");\n    background-repeat: no-repeat;\n    background-position: center;\n    width: 50%;\n    min-height: 55px; }\n  .container #result {\n    width: 50%; }\n  .container .btnholder {\n    padding-top: 10px;\n    padding-bottom: 10px; }\n  .container button {\n    background-color: #f5bb30;\n    border: 1px solid #f5bb30;\n    font-weight: bold;\n    width: 200px;\n    height: 50px;\n    cursor: pointer;\n    font-size: 1rem;\n    outline-color: #f5bb30; }\n\n.footer {\n  font-size: 0.5rem;\n  min-height: 30px;\n  align-items: center;\n  justify-content: center; }\n", ""]);
 
 // exports
 
@@ -2463,6 +2463,18 @@ function updateLink(linkElement, obj) {
 /* 8 */
 /***/ (function(module, exports) {
 
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "038588b90ffc54c7d58e2050d3c7890d.png";
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
 var g;
 
 // This works in non-strict mode
@@ -2487,76 +2499,91 @@ module.exports = g;
 
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sass_main_scss__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sass_main_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sass_main_scss__);
 
+document.addEventListener("DOMContentLoaded", function() {
 
-__webpack_require__(0);
+  var helper = document.getElementById("helper")
 
-document.addEventListener("DOMContentLoaded", function () {
+  var img_one = document.querySelector(".circleholder div:first-child");
+  var img_two = document.querySelector(".circleholder div:nth-child(2)");
+  var img_three = document.querySelector(".circleholder div:nth-child(3)");
 
-  var helper = document.getElementById("helper");
+  var bgrToChange = document.querySelector(".nav");
 
-  helper.addEventListener("click", function (event) {
-    var eggVal = document.getElementById("inputEggs").value;
-    var productToConvTo = document.getElementById("replacer").value;
-    var result = document.getElementById("result");
-    var tip = document.querySelectorAll(".tip");
+  img_one.addEventListener("click", function(){
+    bgrToChange.style.backgroundImage = "url('img/slide1.png')";
+    console.log(bgrToChange)
+  })
 
-    if (eggVal > 0) {
-      var val = eggVal;
+  img_two.addEventListener("click", function(){
+    bgrToChange.style.backgroundImage = "url('img/slide2.png')";
+  })
+
+  img_three.addEventListener("click", function(){
+    bgrToChange.style.backgroundImage = "url('img/slide3.png')";
+  })
+
+  helper.addEventListener("click", function(event){
+    var eggVal = document.getElementById("inputEggs").value
+    var productToConvTo = document.getElementById("replacer").value
+    var result = document.getElementById("result")
+    var tip=document.querySelectorAll(".tip");
+
+    if (eggVal>0){
+      var val=eggVal;
       var toConvert = parseFloat(val);
-      var hint = "";
-      var banan = "Podaną ilość bananów należy zmiksować na puree. Nadają lekko wyczuwalny posmak";
-      var jablko = "Polecane szczególnie do wilgotnych i puszystych ciast";
-      var siemie = "Świeżo zmielone siemię zmieszać z wodą. Nadaje lekko orzechowy posmak";
-      var sTofu = "Podaną ilość zmiksować lub rozgnieść widelcem";
-      var chia = "Zmieszać chia z wodą w podanych proporcjach i odczekać, aż nabiorą żelowej konsystencji";
-      var tahi = "Daje mocno wyczuwalny smak.";
-      var dynia = "Dobrze komponuje się z korzennymi przyprawami";
+      var hint="";
+      var banan = "Podaną ilość bananów należy zmiksować na puree. Nadają lekko wyczuwalny posmak"
+      var jablko = "Polecane szczególnie do wilgotnych i puszystych ciast"
+      var siemie = "Świeżo zmielone siemię zmieszać z wodą. Nadaje lekko orzechowy posmak"
+      var sTofu = "Podaną ilość zmiksować lub rozgnieść widelcem"
+      var chia = "Zmieszać chia z wodą w podanych proporcjach i odczekać, aż nabiorą żelowej konsystencji"
+      var tahi = "Daje mocno wyczuwalny smak."
+      var dynia = "Dobrze komponuje się z korzennymi przyprawami"
 
-      switch (productToConvTo) {
-        case "banana":
-          result = toConvert + " (w sztukach)";hint = banan;
-          break;
-        case "applesauce":
-          result = toConvert * 0.5 + " (w szklankach)";hint = jablko;
-          break;
-        case "flaxseed":
-          result = toConvert * 1.5 + " (w \u0142y\u017Ckach) + woda (w \u0142y\u017Ckach): " + toConvert * 1.5 * 3;hint = siemie;
-          break;
-        case "pumpkin":
-          result = toConvert * 0.5 + " (w szklankach)";hint = dynia;
-          break;
-        case "potatoFlour":
-          result = toConvert * 2 + " (w \u0142y\u017Ckach) + woda (w \u0142y\u017Ckach: " + toConvert * 2 * 3 + ")";
-          break;
-        case "silkenTofu":
-          result = toConvert * 0.5 + " (w szklankach)";hint = sTofu;
-          break;
-        case "soyYoghurt":
-          result = toConvert * 0.5 + " (w szklankach)";
-          break;
-        case "chia":
-          result = toConvert + "(w \u0142y\u017Ckach) + woda (w \u0142y\u017Ckach: " + toConvert * 3 + ")";hint = chia;
-          break;
-        case "tahini":
-          result = toConvert * 3 + " (w \u0142y\u017Ckach)";hint = tahi;
-          break;
-        case "cornstarch":
-          result = toConvert * 2 + " + woda (w \u0142y\u017Ckach: " + toConvert * 3 + ")";
+      switch(productToConvTo){
+        case "banana": result = `${toConvert} (w sztukach)`; hint =banan;
+        break;
+        case "applesauce": result=`${toConvert*0.5} (w szklankach)`; hint=jablko;
+        break;
+        case "flaxseed": result=`${toConvert*1.5} (w łyżkach) + woda (w łyżkach): ${(toConvert*1.5)*3}`; hint=siemie;
+        break;
+        case "pumpkin": result=`${toConvert*0.5} (w szklankach)`; hint=dynia;
+        break;
+        case "potatoFlour": result=`${toConvert*2} (w łyżkach) + woda (w łyżkach: ${(toConvert*2)*3})`;
+        break;
+        case "silkenTofu": result=`${toConvert*0.5} (w szklankach)`; hint=sTofu;
+        break;
+        case "soyYoghurt": result=`${toConvert*0.5} (w szklankach)`;
+        break;
+        case "chia": result=`${toConvert}(w łyżkach) + woda (w łyżkach: ${(toConvert*3)})`; hint=chia;
+        break;
+        case "tahini": result=`${toConvert*3} (w łyżkach)`; hint=tahi;
+        break;
+        case "cornstarch": result=`${toConvert*2} + woda (w łyżkach: ${(toConvert*3)})`;
       }
-    } else if (eggVal <= 0 || (eggVal = NaN)) {
-      result = "Podaj prawidłową wartość";
-      hint = " ";
-    }
+      }
+      else if((eggVal<=0) || (eggVal = NaN)){
+        result = "Podaj prawidłową wartość";
+        hint = " ";
+      }
 
-    document.getElementById("result").innerText = result;
-    document.getElementById("hint").innerText = hint;
-  });
-});
+      document.getElementById("result").innerText = result;
+      document.getElementById("hint").innerText = hint;
+
+
+
+    })
+
+  })
+
 
 /***/ })
 /******/ ]);
