@@ -7,6 +7,11 @@ html{
   font-size: 20px;
 }
 
+html,body
+{
+    overflow-x: hidden;
+}
+
 $greyBackground: #d2d2d2;
 $lightViolet: #ab92e1;
 $darkViolet: #523d80;
@@ -76,15 +81,33 @@ div{
       }
       .slide-unit:nth-of-type(1){
         background-image: url("../img/slide1.png");
-        background-size: cover;
+        // background-size: cover;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        @media(max-width: 640px){
+          background-size: cover;
+          background-image: url("../img/tlomini.png")
+        }
       }
       .slide-unit:nth-of-type(2){
         background-image: url("../img/slide2.png");
-        background-size: cover;
+        // background-size: cover;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        @media(max-width: 640px){
+          background-size: cover;
+          background-image: url("../img/tlomini.png")
+        }
       }
       .slide-unit:nth-of-type(3){
         background-image: url("../img/slide3.png");
-        background-size: cover;
+        // background-size: cover;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        @media(max-width: 640px){
+          background-size: cover;
+          background-image: url("../img/tlomini.png")
+        }
       }
       .active{
         opacity: 1;
@@ -100,10 +123,10 @@ div{
       align-items: center;
       font-family: "Roboto", sans-serif;
       text-transform: uppercase;
-      height: 17%;
-      width: 30%;
-      margin-top: 5%;
-      margin-left: 10%;
+      height: 100px;
+      width: 300px;
+      left: -25%;
+      top: 50px;
       letter-spacing: 2px;
     }
     .titlebackground{
@@ -122,7 +145,12 @@ div{
       justify-content: center;
       align-items: flex-end;
       z-index: 5 !important;
-      // position: relative;
+      position: relative;
+      bottom: 0;
+      top: 30px;
+      // @media(max-width: 640px){
+      //   display: none;
+      // }
     }
     .circle{
       border-radius: 50%;
@@ -283,8 +311,6 @@ div{
     width: 50%;
   }
   .responseholder{
-    // padding-top: 10px;
-    // width: 33.33%;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -304,6 +330,10 @@ div{
     font-size: 1rem;
     text-align: center;
     width: 100%;
+    @media(max-width: 640px){
+      flex-direction: column;
+      font-size: 0.8rem;
+    }
   }
   #brdr{
     background-color: $darkViolet;
@@ -341,7 +371,6 @@ div{
     font-size: 1rem;
     outline-color: $yellowBtn;
   }
-// }
 .footer{
   font-size: 0.5rem;
   min-height: 30px;
