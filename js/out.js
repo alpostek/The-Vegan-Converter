@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2008,7 +2008,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 3 */
@@ -2019,7 +2019,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0 auto;\n  padding: 0 auto; }\n\nhtml {\n  font-size: 20px; }\n\ndiv {\n  display: flex; }\n\n.lato {\n  font-family: 'Lato', sans-serif; }\n\n.roboto_slab {\n  font-family: 'Roboto Slab', serif; }\n\n.container {\n  flex-wrap: wrap;\n  flex-direction: column;\n  max-width: 100%;\n  margin: 0 0 0 0;\n  padding: 0 auto; }\n  .container .nav {\n    width: 100%;\n    background-image: url(" + __webpack_require__(9) + ");\n    background-size: cover;\n    min-height: 230px;\n    font-size: 2rem;\n    display: flex;\n    flex-direction: column; }\n    @media (max-width: 640px) {\n      .container .nav {\n        margin: 0; } }\n    .container .nav .titleholder {\n      position: relative;\n      z-index: 5;\n      align-self: flex-start;\n      flex-direction: column;\n      justify-content: center;\n      align-items: center;\n      font-family: \"Roboto\", sans-serif;\n      text-transform: uppercase;\n      height: 15%;\n      width: 30%;\n      margin-top: 5%;\n      margin-left: 10%;\n      letter-spacing: 2px; }\n    .container .nav .titlebackground {\n      position: absolute;\n      z-index: -1;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      background-color: #b3b3b3;\n      opacity: 0.3; }\n    .container .nav .circleholder {\n      height: 100px;\n      width: 100px;\n      justify-content: center;\n      align-items: flex-end; }\n    .container .nav .circle {\n      border-radius: 50%;\n      border: 3px solid #b3b3b3;\n      width: 20%;\n      height: 20%;\n      background-color: #d2d2d2;\n      margin-bottom: 20px; }\n  .container .headersection {\n    justify-content: space-around;\n    width: 100%;\n    background-color: #d2d2d2; }\n    @media (max-width: 640px) {\n      .container .headersection {\n        display: table; } }\n  .container .header {\n    text-align: center;\n    width: 50%;\n    min-height: 60px;\n    background-color: #d2d2d2;\n    align-items: flex-end; }\n    .container .header p {\n      margin-bottom: 10px; }\n    @media (max-width: 640px) {\n      .container .header {\n        line-height: 40px; } }\n  @media (max-width: 640px) {\n    .container #sec {\n      display: none; } }\n  @media (min-width: 640px) {\n    .container #hide {\n      display: none; } }\n  .container .sectionmain {\n    justify-content: space-around;\n    width: 100%;\n    background-color: #d2d2d2; }\n    @media (max-width: 640px) {\n      .container .sectionmain {\n        display: table; } }\n  .container .sectiontable {\n    width: 50%;\n    min-height: 450px;\n    background-color: #d2d2d2;\n    flex-direction: column; }\n    .container .sectiontable table {\n      border-collapse: collapse; }\n    .container .sectiontablethead, .container .sectiontable th, .container .sectiontable td, .container .sectiontable tr {\n      padding: 8px; }\n    .container .sectiontable thead {\n      color: white;\n      background-color: #ab92e1;\n      border-bottom: 3px solid #523d80; }\n    .container .sectiontable tr {\n      border-bottom: 1px dashed #ab92e1; }\n    .container .sectiontable tbody {\n      background-color: white; }\n    @media (max-width: 640px) {\n      .container .sectiontable {\n        width: 100%;\n        margin-right: 0px; } }\n  .container .sectioncalc {\n    width: 50%;\n    min-height: 450px;\n    background-color: #d2d2d2;\n    flex-direction: column;\n    justify-content: space-between; }\n    @media (max-width: 640px) {\n      .container .sectioncalc {\n        width: 100%;\n        margin-left: 0px; } }\n  .container .twocolholder {\n    display: flex;\n    margin: 0 0 0 0;\n    flex-direction: row;\n    box-sizing: border-box; }\n    @media (max-width: 640px) {\n      .container .twocolholder {\n        width: 100%; } }\n  .container .inputholder {\n    display: flex;\n    flex-direction: column;\n    width: 50%; }\n  .container .inputholder input {\n    width: 50%;\n    cursor: pointer;\n    text-align: center; }\n  .container .inputfirst {\n    width: 100%;\n    margin-bottom: 20px; }\n  .container .inputlabel {\n    color: white;\n    background-color: #ab92e1;\n    border-bottom: 3px solid #523d80;\n    width: 50%;\n    padding: 6px; }\n  .container .inputsecond {\n    width: 100%;\n    margin-top: 10px; }\n    .container .inputsecond label {\n      color: white;\n      background-color: #ab92e1;\n      border-bottom: 3px solid #523d80;\n      padding: 6px;\n      width: 100%;\n      text-align: center; }\n  .container input:focus {\n    outline-color: #EEF0F0; }\n  .container .inputholder select {\n    font-size: 0.8rem;\n    padding-top: 5px;\n    padding-left: 5px;\n    padding-right: 5px;\n    padding-bottom: 5px;\n    width: 100%;\n    cursor: pointer;\n    overflow-y: auto; }\n  .container select:focus {\n    outline-color: #EEF0F0; }\n  .container option {\n    padding: 3px; }\n  .container option:hover {\n    background-color: #ab92e1;\n    color: #EEF0F0; }\n  .container .selectholder {\n    padding-left: 0;\n    width: 50%; }\n  .container .responseholder {\n    width: 50%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    padding-right: 10px;\n    padding-left: 10px;\n    font-size: 0.7rem;\n    box-sizing: border-box;\n    margin: 0 0 0 0; }\n  .container .tip {\n    margin-top: 5px;\n    margin-bottom: 5px;\n    padding: 10px;\n    box-sizing: border-box;\n    line-height: 30px;\n    font-size: 1rem;\n    text-align: center;\n    width: 100%; }\n  .container #brdr {\n    background-color: #523d80;\n    height: 3px;\n    width: 50%;\n    margin-top: 5px;\n    margin-bottom: 5px; }\n  @media (max-width: 640px) {\n    .container .hint {\n      font-size: 0.6rem; } }\n  .container .eggimage {\n    background-image: url(" + __webpack_require__(8) + ");\n    background-repeat: no-repeat;\n    background-position: center;\n    width: 50%;\n    min-height: 55px; }\n  .container #result {\n    width: 50%; }\n  .container .btnholder {\n    padding-top: 10px;\n    padding-bottom: 10px; }\n  .container button {\n    background-color: #f5bb30;\n    border: 1px solid #f5bb30;\n    font-weight: bold;\n    width: 200px;\n    height: 50px;\n    cursor: pointer;\n    font-size: 1rem;\n    outline-color: #f5bb30; }\n\n.footer {\n  font-size: 0.5rem;\n  min-height: 30px;\n  align-items: center;\n  justify-content: center; }\n", ""]);
+exports.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0 auto;\n  padding: 0 auto; }\n\nhtml {\n  font-size: 20px; }\n\ndiv {\n  display: flex; }\n\n.lato {\n  font-family: 'Lato', sans-serif; }\n\n.roboto_slab {\n  font-family: 'Roboto Slab', serif; }\n\n.container {\n  flex-wrap: wrap;\n  flex-direction: column;\n  max-width: 100%;\n  margin: 0 0 0 0;\n  padding: 0 auto; }\n  .container .nav {\n    width: 100%;\n    min-height: 230px;\n    font-size: 2rem;\n    display: flex;\n    flex-direction: column; }\n    @media (max-width: 640px) {\n      .container .nav {\n        margin: 0; } }\n    @media (max-width: 640px) {\n      .container .nav {\n        font-size: 1rem; } }\n    .container .nav .navbgr {\n      width: 100%;\n      top: 0;\n      left: 0;\n      z-index: 0;\n      min-height: 230px;\n      display: flex;\n      flex-direction: column;\n      position: relative; }\n    .container .nav .slide-unit {\n      position: absolute;\n      top: 0;\n      left: 0;\n      opacity: 0;\n      z-index: 1;\n      width: 100%;\n      height: 100%; }\n    .container .nav .slide-unit:nth-of-type(1) {\n      background-image: url(" + __webpack_require__(9) + ");\n      background-size: cover; }\n    .container .nav .slide-unit:nth-of-type(2) {\n      background-image: url(" + __webpack_require__(10) + ");\n      background-size: cover; }\n    .container .nav .slide-unit:nth-of-type(3) {\n      background-image: url(" + __webpack_require__(11) + ");\n      background-size: cover; }\n    .container .nav .active {\n      opacity: 1;\n      z-index: 2; }\n  .container .titleholder {\n    position: relative;\n    z-index: 5;\n    align-self: flex-start;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    font-family: \"Roboto\", sans-serif;\n    text-transform: uppercase;\n    height: 17%;\n    width: 30%;\n    margin-top: 5%;\n    margin-left: 10%;\n    letter-spacing: 2px; }\n  .container .titlebackground {\n    position: absolute;\n    z-index: -1;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: #b3b3b3;\n    opacity: 0.3; }\n  .container .circleholder {\n    height: 100px;\n    width: 100px;\n    justify-content: center;\n    align-items: flex-end;\n    z-index: 5 !important; }\n  .container .circle {\n    border-radius: 50%;\n    border: 3px solid #b3b3b3;\n    width: 20%;\n    height: 20%;\n    background-color: #d2d2d2;\n    margin-bottom: 20px;\n    z-index: 5 !important; }\n\n.headersection {\n  justify-content: space-around;\n  width: 100%;\n  background-color: #d2d2d2; }\n  @media (max-width: 640px) {\n    .headersection {\n      display: table; } }\n\n.header {\n  text-align: center;\n  width: 50%;\n  min-height: 60px;\n  background-color: #d2d2d2;\n  align-items: flex-end; }\n  .header p {\n    margin-bottom: 10px; }\n  @media (max-width: 640px) {\n    .header {\n      line-height: 40px; } }\n\n@media (max-width: 640px) {\n  #sec {\n    display: none; } }\n\n@media (min-width: 640px) {\n  #hide {\n    display: none; } }\n\n.sectionmain {\n  justify-content: space-around;\n  width: 100%;\n  background-color: #d2d2d2; }\n  @media (max-width: 640px) {\n    .sectionmain {\n      display: table; } }\n\n.sectiontable {\n  width: 50%;\n  min-height: 450px;\n  background-color: #d2d2d2;\n  flex-direction: column; }\n  .sectiontable table {\n    border-collapse: collapse; }\n  .sectiontablethead, .sectiontable th, .sectiontable td, .sectiontable tr {\n    padding: 8px; }\n  .sectiontable thead {\n    color: white;\n    background-color: #ab92e1;\n    border-bottom: 3px solid #523d80; }\n  .sectiontable tr {\n    border-bottom: 1px dashed #ab92e1; }\n  .sectiontable tbody {\n    background-color: white; }\n  @media (max-width: 640px) {\n    .sectiontable {\n      width: 100%;\n      margin-right: 0px; } }\n\n.sectioncalc {\n  width: 50%;\n  min-height: 450px;\n  background-color: #d2d2d2;\n  flex-direction: column;\n  justify-content: space-between; }\n  @media (max-width: 640px) {\n    .sectioncalc {\n      width: 100%;\n      margin-left: 0px; } }\n\n.twocolholder {\n  display: flex;\n  margin: 0 0 0 0;\n  flex-direction: row;\n  box-sizing: border-box; }\n  @media (max-width: 640px) {\n    .twocolholder {\n      width: 100%; } }\n\n.inputholder {\n  display: flex;\n  flex-direction: column;\n  width: 50%; }\n\n.inputholder input {\n  width: 50%;\n  cursor: pointer;\n  text-align: center; }\n\n.inputfirst {\n  width: 100%;\n  margin-bottom: 20px; }\n\n.inputlabel {\n  color: white;\n  background-color: #ab92e1;\n  border-bottom: 3px solid #523d80;\n  width: 50%;\n  padding: 6px; }\n\n.inputsecond {\n  width: 100%;\n  margin-top: 10px; }\n  .inputsecond label {\n    color: white;\n    background-color: #ab92e1;\n    border-bottom: 3px solid #523d80;\n    padding: 6px;\n    width: 100%;\n    text-align: center; }\n\ninput:focus {\n  outline-color: #d2d2d2; }\n\n.inputholder select {\n  font-size: 0.8rem;\n  padding-top: 5px;\n  padding-left: 5px;\n  padding-right: 5px;\n  padding-bottom: 5px;\n  width: 100%;\n  cursor: pointer;\n  overflow-y: auto; }\n\nselect:focus {\n  outline-color: #d2d2d2; }\n\noption {\n  padding: 3px; }\n\noption:hover {\n  background-color: #ab92e1;\n  color: #d2d2d2; }\n\n.selectholder {\n  padding-left: 0;\n  width: 50%; }\n\n.responseholder {\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  padding-right: 10px;\n  padding-left: 10px;\n  font-size: 0.7rem;\n  box-sizing: border-box;\n  margin: 0 0 0 0; }\n\n.tip {\n  margin-top: 5px;\n  margin-bottom: 5px;\n  padding: 10px;\n  box-sizing: border-box;\n  line-height: 30px;\n  font-size: 1rem;\n  text-align: center;\n  width: 100%; }\n\n#brdr {\n  background-color: #523d80;\n  height: 3px;\n  width: 50%;\n  margin-top: 5px;\n  margin-bottom: 5px; }\n\n@media (max-width: 640px) {\n  .hint {\n    font-size: 0.6rem; } }\n\n.eggimage {\n  background-image: url(" + __webpack_require__(8) + ");\n  background-repeat: no-repeat;\n  background-position: center;\n  width: 50%;\n  min-height: 55px; }\n\n#result {\n  width: 50%; }\n\n.btnholder {\n  padding-top: 10px;\n  padding-bottom: 10px; }\n\nbutton {\n  background-color: #f5bb30;\n  border: 1px solid #f5bb30;\n  font-weight: bold;\n  width: 200px;\n  height: 50px;\n  cursor: pointer;\n  font-size: 1rem;\n  outline-color: #f5bb30; }\n\n.footer {\n  font-size: 0.5rem;\n  min-height: 30px;\n  align-items: center;\n  justify-content: center; }\n", ""]);
 
 // exports
 
@@ -2469,10 +2469,22 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAA1CAYAAADh
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "038588b90ffc54c7d58e2050d3c7890d.png";
+module.exports = __webpack_require__.p + "4a2a7f4e10a9ec596b75a78283964f7d.png";
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "038588b90ffc54c7d58e2050d3c7890d.png";
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "a351548c8a83add3a711967c3485d2dd.png";
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports) {
 
 var g;
@@ -2499,7 +2511,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2509,26 +2521,65 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 document.addEventListener("DOMContentLoaded", function() {
 
-  var helper = document.getElementById("helper")
+  //getting slides
+  var slides = document.querySelectorAll(".navbgr .slide-unit")
+  //counter
+  var currentSlide = 0;
+  //turning slider on
+  var slider = setInterval(nextSlide, 1500);
 
-  var img_one = document.querySelector(".circleholder div:first-child");
-  var img_two = document.querySelector(".circleholder div:nth-child(2)");
-  var img_three = document.querySelector(".circleholder div:nth-child(3)");
+  function nextSlide(){
+    changeSlide(currentSlide+1);
+  }
 
-  var bgrToChange = document.querySelector(".nav");
+  function previousSlide() {
+    changeSlide(currentSlide-1);
+  }
 
-  img_one.addEventListener("click", function(){
-    bgrToChange.style.backgroundImage = "url('img/slide1.png')";
-    console.log(bgrToChange)
+  function changeSlide(x){
+    //hiding first slide
+    slides[currentSlide].className = "slide-unit";
+    //adding one to counter and using modulo to cycle back to zero
+    //e.g: (1+3)%3 =1; (2+3)%3 = 2, (3+3)%3 =0
+    currentSlide = (x+slides.length)%slides.length;
+    slides[currentSlide].className = "slide-unit active";
+  }
+
+  var sliderOn = true;
+  var img_pause = document.querySelector(".circleholder div:nth-child(2)");
+
+  function pause(){
+    sliderOn = false;
+    clearInterval(slider)
+  }
+  function play(){
+    sliderOn = true;
+    slider = setInterval(nextSlide, 1500);
+  }
+
+  img_pause.addEventListener("click", function(){
+    if(sliderOn){
+      pause();
+    } else{
+      play();
+    }
   })
 
-  img_two.addEventListener("click", function(){
-    bgrToChange.style.backgroundImage = "url('img/slide2.png')";
+  var img_previous = document.querySelector(".circleholder div:first-child");
+  var img_next = document.querySelector(".circleholder div:nth-child(3)");
+
+  img_previous.addEventListener("click", function(){
+    pause();
+    nextSlide();
   })
 
-  img_three.addEventListener("click", function(){
-    bgrToChange.style.backgroundImage = "url('img/slide3.png')";
+  img_next.addEventListener("click", function(){
+    pause();
+    previousSlide();
   })
+
+  var helper = document.getElementById("helper");
+
 
   helper.addEventListener("click", function(event){
     var eggVal = document.getElementById("inputEggs").value

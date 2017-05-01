@@ -1,26 +1,65 @@
 import "../sass/main.scss"
 document.addEventListener("DOMContentLoaded", function() {
 
-  var helper = document.getElementById("helper")
+  //getting slides
+  var slides = document.querySelectorAll(".navbgr .slide-unit")
+  //counter
+  var currentSlide = 0;
+  //turning slider on
+  var slider = setInterval(nextSlide, 1500);
 
-  var img_one = document.querySelector(".circleholder div:first-child");
-  var img_two = document.querySelector(".circleholder div:nth-child(2)");
-  var img_three = document.querySelector(".circleholder div:nth-child(3)");
+  function nextSlide(){
+    changeSlide(currentSlide+1);
+  }
 
-  var bgrToChange = document.querySelector(".nav");
+  function previousSlide() {
+    changeSlide(currentSlide-1);
+  }
 
-  img_one.addEventListener("click", function(){
-    bgrToChange.style.backgroundImage = "url('img/slide1.png')";
-    console.log(bgrToChange)
+  function changeSlide(x){
+    //hiding first slide
+    slides[currentSlide].className = "slide-unit";
+    //adding one to counter and using modulo to cycle back to zero
+    //e.g: (1+3)%3 =1; (2+3)%3 = 2, (3+3)%3 =0
+    currentSlide = (x+slides.length)%slides.length;
+    slides[currentSlide].className = "slide-unit active";
+  }
+
+  var sliderOn = true;
+  var img_pause = document.querySelector(".circleholder div:nth-child(2)");
+
+  function pause(){
+    sliderOn = false;
+    clearInterval(slider)
+  }
+  function play(){
+    sliderOn = true;
+    slider = setInterval(nextSlide, 1500);
+  }
+
+  img_pause.addEventListener("click", function(){
+    if(sliderOn){
+      pause();
+    } else{
+      play();
+    }
   })
 
-  img_two.addEventListener("click", function(){
-    bgrToChange.style.backgroundImage = "url('img/slide2.png')";
+  var img_previous = document.querySelector(".circleholder div:first-child");
+  var img_next = document.querySelector(".circleholder div:nth-child(3)");
+
+  img_previous.addEventListener("click", function(){
+    pause();
+    nextSlide();
   })
 
-  img_three.addEventListener("click", function(){
-    bgrToChange.style.backgroundImage = "url('img/slide3.png')";
+  img_next.addEventListener("click", function(){
+    pause();
+    previousSlide();
   })
+
+  var helper = document.getElementById("helper");
+
 
   helper.addEventListener("click", function(event){
     var eggVal = document.getElementById("inputEggs").value

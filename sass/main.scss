@@ -7,14 +7,10 @@ html{
   font-size: 20px;
 }
 
-$mainColor: #EEF0F0;
-$secondColor: #ab92e1;
-
 $greyBackground: #d2d2d2;
 $lightViolet: #ab92e1;
 $darkViolet: #523d80;
 $yellowBtn: #f5bb30;
-
 
 
 div{
@@ -27,14 +23,6 @@ div{
   border-bottom: 3px solid $darkViolet;
 }
 
-
-@mixin boxstyle{
-  border-radius: 15px;
-  box-shadow: 0 2px 3px rgba(0,0,0,.1), 3px 3px 8px rgba(0,0,0,.1);
-  @media(max-width: 640px){
-    margin: 0;
-  }
-}
 
 @mixin media{
   @media(max-width: 640px){
@@ -59,13 +47,50 @@ div{
 
   .nav{
     @include media;
+    @media(max-width: 640px){
+      font-size: 1rem;
+    }
     width: 100%;
-    background-image: url("../img/slide2.png");
-    background-size: cover;
     min-height: 230px;
     font-size: 2rem;
     display: flex;
     flex-direction: column;
+    .navbgr{
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    min-height: 230px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    }
+    .slide-unit{
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      }
+      .slide-unit:nth-of-type(1){
+        background-image: url("../img/slide1.png");
+        background-size: cover;
+      }
+      .slide-unit:nth-of-type(2){
+        background-image: url("../img/slide2.png");
+        background-size: cover;
+      }
+      .slide-unit:nth-of-type(3){
+        background-image: url("../img/slide3.png");
+        background-size: cover;
+      }
+      .active{
+        opacity: 1;
+        z-index: 2;
+      }
+    }
     .titleholder{
       position: relative;
       z-index: 5;
@@ -75,7 +100,7 @@ div{
       align-items: center;
       font-family: "Roboto", sans-serif;
       text-transform: uppercase;
-      height: 15%;
+      height: 17%;
       width: 30%;
       margin-top: 5%;
       margin-left: 10%;
@@ -96,6 +121,8 @@ div{
       width: 100px;
       justify-content: center;
       align-items: flex-end;
+      z-index: 5 !important;
+      // position: relative;
     }
     .circle{
       border-radius: 50%;
@@ -104,6 +131,8 @@ div{
       height: 20%;
       background-color: #d2d2d2;
       margin-bottom: 20px;
+      z-index: 5 !important;
+      // position: absolute;
     }
   }
   .headersection{
@@ -118,7 +147,6 @@ div{
     text-align: center;
     width: 50%;
     min-height: 60px;
-    // line-height: 80px;
     background-color: $greyBackground;
     align-items: flex-end;
     p{
@@ -154,7 +182,6 @@ div{
     flex-direction: column;
     table{
       border-collapse: collapse;
-      // margin-top: ;
     }
     &thead, th, td, tr{
       padding: 8px;
@@ -229,7 +256,7 @@ div{
     margin-top: 10px;
   }
   input:focus{
-      outline-color: $mainColor;
+      outline-color: $greyBackground;
     }
   .inputholder select{
     font-size: 0.8rem;
@@ -242,14 +269,14 @@ div{
     overflow-y: auto;
   }
   select:focus{
-    outline-color: $mainColor;
+    outline-color: $greyBackground;
   }
   option{
     padding: 3px;
   }
   option:hover {
-  background-color : $secondColor;
-  color: $mainColor;
+  background-color : $lightViolet;
+  color: $greyBackground;
   }
   .selectholder{
     padding-left: 0;
@@ -314,7 +341,7 @@ div{
     font-size: 1rem;
     outline-color: $yellowBtn;
   }
-}
+// }
 .footer{
   font-size: 0.5rem;
   min-height: 30px;
