@@ -18,10 +18,6 @@ $darkViolet: #523d80;
 $yellowBtn: #f5bb30;
 
 
-div{
-  display: flex;
-}
-
 @mixin violets{
   color: white;
   background-color: $lightViolet;
@@ -44,31 +40,33 @@ div{
 }
 
 .container{
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
   flex-wrap: wrap;
-  flex-direction: column;
-  max-width: 100%;
-  margin: 0 0 0 0;
-  padding: 0 auto;
+    }
 
   .nav{
     @include media;
     @media(max-width: 640px){
-      font-size: 1rem;
+      font-size: 1.5rem;
     }
     width: 100%;
-    min-height: 230px;
     font-size: 2rem;
     display: flex;
     flex-direction: column;
+
     .navbgr{
     width: 100%;
     top: 0;
     left: 0;
     z-index: 0;
-    min-height: 230px;
     display: flex;
     flex-direction: column;
     position: relative;
+    height: 320px;
+    overflow: hidden;
     }
     .slide-unit{
       position: absolute;
@@ -81,9 +79,9 @@ div{
       }
       .slide-unit:nth-of-type(1){
         background-image: url("../img/slide1.png");
-        // background-size: cover;
-        background-size: 100% 100%;
+        background-size: auto;
         background-repeat: no-repeat;
+        background-position: center;
         @media(max-width: 640px){
           background-size: cover;
           background-image: url("../img/tlomini.png")
@@ -91,9 +89,9 @@ div{
       }
       .slide-unit:nth-of-type(2){
         background-image: url("../img/slide2.png");
-        // background-size: cover;
-        background-size: 100% 100%;
+        background-size: auto;
         background-repeat: no-repeat;
+        background-position: center;
         @media(max-width: 640px){
           background-size: cover;
           background-image: url("../img/tlomini.png")
@@ -101,12 +99,12 @@ div{
       }
       .slide-unit:nth-of-type(3){
         background-image: url("../img/slide3.png");
-        // background-size: cover;
-        background-size: 100% 100%;
+        background-size: auto;
         background-repeat: no-repeat;
+        background-position: center;
         @media(max-width: 640px){
           background-size: cover;
-          background-image: url("../img/tlomini.png")
+          background-image: url("../img/tlomini.png");
         }
       }
       .active{
@@ -123,10 +121,9 @@ div{
       align-items: center;
       font-family: "Roboto", sans-serif;
       text-transform: uppercase;
-      height: 100px;
-      width: 300px;
-      left: -25%;
-      top: 50px;
+      padding: 10px;
+      margin-top: 3rem;
+      margin-left: 4rem;
       letter-spacing: 2px;
     }
     .titlebackground{
@@ -140,17 +137,17 @@ div{
       opacity: 0.3;
     }
     .circleholder{
+      display: flex;
       height: 100px;
       width: 100px;
       justify-content: center;
       align-items: flex-end;
       z-index: 5 !important;
       position: relative;
-      bottom: 0;
-      top: 30px;
-      // @media(max-width: 640px){
-      //   display: none;
-      // }
+      top: 2.5rem;
+      @media(max-width: 640px){
+        display: none;
+      }
     }
     .circle{
       border-radius: 50%;
@@ -160,10 +157,11 @@ div{
       background-color: #d2d2d2;
       margin-bottom: 20px;
       z-index: 5 !important;
-      // position: absolute;
     }
-  }
+
+
   .headersection{
+    display: flex;
     justify-content: space-around;
     width: 100%;
     background-color: $greyBackground;
@@ -171,17 +169,17 @@ div{
       display: table;
     }
   }
+  .headerholder{
+    display: flex;
+  }
   .header{
     text-align: center;
     width: 50%;
-    min-height: 60px;
+    padding: 20px;
     background-color: $greyBackground;
     align-items: flex-end;
-    p{
-      margin-bottom: 10px;
-    }
     @media(max-width: 640px){
-      line-height: 40px;
+      width: 100%;
     }
   }
   #sec{
@@ -195,6 +193,7 @@ div{
     }
   }
   .sectionmain{
+    display: flex;
     justify-content: space-around;
     width: 100%;
     background-color: $greyBackground;
@@ -203,19 +202,28 @@ div{
     }
   }
   .sectiontable{
+    display: flex;
     width: 50%;
-    min-height: 450px;
     background-color: $greyBackground;
-    // justify-content: center;
+    justify-content: center;
     flex-direction: column;
     table{
       border-collapse: collapse;
+      margin-bottom: 10px;
     }
     &thead, th, td, tr{
       padding: 8px;
     }
+    td{
+      font-size: 0.7rem;
+    }
     thead{
       @include violets;
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+    th{
+      font-weight: normal;
     }
     tr{
       border-bottom: 1px dashed $lightViolet;
@@ -230,7 +238,7 @@ div{
   }
   .sectioncalc{
     width: 50%;
-    min-height: 450px;
+    display: flex;
     background-color: $greyBackground;
     flex-direction: column;
     justify-content: space-between;
@@ -243,8 +251,8 @@ div{
     display: flex;
     margin: 0 0 0 0;
     flex-direction: row;
-    // padding-left: 10px;
-    // padding-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     box-sizing: border-box;
     @media(max-width: 640px){
       width: 100%;
@@ -252,12 +260,8 @@ div{
   }
   .inputholder{
     display: flex;
-    // background-color: red;
     flex-direction: column;
     width: 50%;
-    // margin-left: 10px;
-    // margin-right: 10px;
-    // padding-top: 10px;
   }
   .inputholder input{
     width: 50%;
@@ -267,19 +271,27 @@ div{
   .inputfirst{
     width: 100%;
     margin-bottom: 20px;
+    display: flex;
   }
   .inputlabel{
     @include violets;
     width: 50%;
-    padding: 6px;
+    padding: 8px;
+    text-align: center;
+    label{
+      font-size: 0.9rem;
+    }
   }
   .inputsecond{
+    display: flex;
     width: 100%;
+    margin-top: 10px;
     label{
       @include violets;
-      padding: 6px;
+      padding: 8px;
       width: 100%;
       text-align: center;
+      font-size: 0.9rem;
     }
     margin-top: 10px;
   }
@@ -288,10 +300,6 @@ div{
     }
   .inputholder select{
     font-size: 0.8rem;
-    padding-top: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
     width: 100%;
     cursor: pointer;
     overflow-y: auto;
@@ -301,6 +309,7 @@ div{
   }
   option{
     padding: 3px;
+    font-size: 0.7rem;
   }
   option:hover {
   background-color : $lightViolet;
@@ -314,7 +323,6 @@ div{
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     padding-right: 10px;
     padding-left: 10px;
     font-size: 0.7rem;
@@ -322,15 +330,16 @@ div{
     margin: 0 0 0 0;
   }
   .tip{
+    display: flex;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 10px;
     box-sizing: border-box;
     line-height: 30px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-align: center;
     width: 100%;
-    @media(max-width: 640px){
+    @media(max-width: 1030px){
       flex-direction: column;
       font-size: 0.8rem;
     }
@@ -347,16 +356,6 @@ div{
       font-size: 0.6rem;
     }
   }
-  .eggimage{
-    background-image: url("../img/egg-icon-53x53.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 50%;
-    min-height: 55px;
-  }
-  #result{
-    width: 50%;
-  }
   .btnholder{
     padding-top: 10px;
     padding-bottom: 10px;
@@ -365,15 +364,14 @@ div{
     background-color: $yellowBtn;
     border: 1px solid $yellowBtn;
     font-weight: bold;
-    width: 200px;
-    height: 50px;
+    padding: 5px 15px 5px 15px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.8rem;
     outline-color: $yellowBtn;
   }
 .footer{
-  font-size: 0.5rem;
-  min-height: 30px;
+  font-size: 0.6rem;
+  text-align: center;
   align-items: center;
   justify-content: center;
 }
